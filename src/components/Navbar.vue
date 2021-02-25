@@ -2,9 +2,7 @@
   <div>
     <nav
       class="navbar navbar-expand-lg fixed-top p-st"
-      :class="{
-        'navbar-blur': navbarConfig.blur
-      }"
+      :class="{ 'navbar-blur': navbarConfig.blur }"
     >
       <div class="container">
         <a
@@ -12,58 +10,65 @@
           href="/"
           @click.prevent="$emit('scroll', 'home')"
         >
+
+
           <Logo />
         </a>
         <button
           class="navbar-toggler"
           type="button"
-          data-toggle="collapse"
+          dataToggle="collapse"
           data-target="#navbarSupported"
           aria-controls="navbarSupported"
           aria-expanded="false"
           aria-label="Toggle navigation"
-        >
-          <span style=" font-size: 23px;"><i class="fas fa-bars"></i></span>
+        > <span style=" font-size: 23px;"><i class="fas fa-bars"></i></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupported">
+        
+
+        <div id="navbarSupported" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-2">
               <a
                 class="nav-link"
                 href="/about"
                 @click.prevent="$emit('scroll', 'about')"
-                >about</a
               >
+                about about
+              </a>
             </li>
             <li class="nav-item mx-2">
               <a
                 class="nav-link"
                 href="/skills"
                 @click.prevent="$emit('scroll', 'skills')"
-                >skills</a
               >
+                skills
+              </a>
             </li>
             <li class="nav-item mx-2 ">
               <a
                 class="nav-link"
                 href="/portfolio"
                 @click.prevent="$emit('scroll', 'portfolio')"
-                >portfolio</a
               >
+                portfolio
+              </a>
             </li>
             <li class="nav-item mx-2">
               <a
                 class="nav-link"
                 href="/contact"
                 @click.prevent="$emit('scroll', 'contact')"
-                >contact</a
               >
+                contact
+              </a>
             </li>
             <li class="nav-item ml-2">
               <DarkMode
                 :modes="['light', 'dark']"
-                :metaThemeColor="{
+                :meta-theme-color="{
                   light: '#f4f6f5',
                   dark: '#0e151b'
                 }"
@@ -71,13 +76,15 @@
               >
                 <template v-slot="{ mode }">
                   <i
+                    v-tooltip.bottom="switchText(mode)"
                     :class="{
                       'fas fa-moon': mode === 'dark',
                       'far fa-moon': mode === 'light'
                     }"
-                    v-tooltip.bottom="switchText(mode)"
                   ></i>
                 </template>
+
+
               </DarkMode>
             </li>
           </ul>
@@ -94,12 +101,18 @@ import { mapActions } from "vuex";
 
 export default {
   name: "Navbar",
+   
+   components: {
+    Logo
+  },
+
   data() {
     return {
       navbarConfig: info.config.navbar
     };
   },
-  components: {
+
+     components: {
     Logo
   },
   methods: {

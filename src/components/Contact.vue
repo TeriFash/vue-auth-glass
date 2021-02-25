@@ -91,9 +91,7 @@ import Snackbar from "./helpers/Snackbar";
 
 export default {
   name: "Contact",
-  components: {
-    Snackbar
-  },
+
   data() {
     return {
       email: "",
@@ -103,6 +101,9 @@ export default {
       snackbarMessage: "",
       snackbarColor: ""
     };
+  },
+    components: {
+    Snackbar
   },
   methods: {
     closeSnackbar(val) {
