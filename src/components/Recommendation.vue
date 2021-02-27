@@ -7,7 +7,7 @@
         data-aos-once="true"
         data-aos-duration="1000"
       >
-        <span class="title text-center">recommendations.</span>
+        <span class="title text-center">{{ title }}.</span>
       </div>
       <hr width="50%" class="pg-line" />
       <div class="row">
@@ -44,23 +44,20 @@
 </template>
 
 <script>
-import info from "@/content";
+import info from '@/content'
 
 export default {
-  name: "Recommendation",
+  name: 'Recommendation',
   data() {
     return {
-      data: info.recommendations
-    };
-  }
-};
+      title: info.sections.recommendation,
+      data: info.recommendations,
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-.recommendation {
-  background: var(--bg-l-1);
-}
-
 .title2 {
   font-size: 18px;
   font-style: italic;

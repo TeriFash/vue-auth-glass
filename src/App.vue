@@ -3,31 +3,31 @@
     <Navbar @scroll="scrollTo" />
     <div class="parent">
       <Home />
-      <About id="about" />
-      <Skills id="skills" />
-      <Portfolio id="portfolio" />
+      <About :id="sections.about" />
+      <Skills :id="sections.skills" />
+      <Portfolio :id="sections.portfolio" />
       <Recommendation />
-      <Contact id="contact" />
+      <Contact :id="sections.contact" />
       <Footer />
     </div>
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
-import Home from "@/components/Home";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Portfolio from "@/components/Portfolio";
-import Recommendation from "@/components/Recommendation";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Navbar from '@/components/Navbar.vue'
+import Home from '@/components/Home'
+import About from '@/components/About'
+import Skills from '@/components/Skills'
+import Portfolio from '@/components/Portfolio'
+import Recommendation from '@/components/Recommendation'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
 
-import info from "@/content";
-import { mapGetters, mapActions } from "vuex";
+import info from '@/content'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Navbar,
     Home,
@@ -36,49 +36,50 @@ export default {
     Portfolio,
     Recommendation,
     Contact,
-    Footer
+    Footer,
   },
   data() {
     return {
-      config: info.config
-    };
+      config: info.config,
+      sections: info.sections,
+    }
   },
   computed: {
     ...mapGetters({
-      colorMode: "colorMode"
+      colorMode: 'colorMode',
     }),
     isTheme() {
-      return this.colorMode && localStorage.getItem("colorMode");
-    }
+      return this.colorMode && localStorage.getItem('colorMode')
+    },
   },
   mounted() {
-    ["about", "contact", "skills", "portfolio"].forEach(l => {
+    ;['about', 'contact', 'skills', 'portfolio'].forEach(l => {
       if (window.location.href.includes(l)) {
-        const elementPosition = document.getElementById(l).offsetTop;
-        window.scrollTo({ top: elementPosition - 35, behavior: "smooth" });
+        const elementPosition = document.getElementById(l).offsetTop
+        window.scrollTo({ top: elementPosition - 35, behavior: 'smooth' })
       }
-    });
+    })
     // setTimeout(() => {
     //   document.body.style.transition = "background-color .3s";
     // }, 1000);
   },
   methods: {
     ...mapActions({
-      initializeMode: "initializeMode"
+      initializeMode: 'initializeMode',
     }),
     scrollTo(ele) {
-      if (ele == "home") {
-        this.$router.push(`/`);
-        window.scrollTo({ top: -80, behavior: "smooth" });
+      if (ele == 'home') {
+        this.$router.push(`/`)
+        window.scrollTo({ top: -80, behavior: 'smooth' })
       } else {
-        const elementPosition = document.getElementById(ele).offsetTop;
-        window.scrollTo({ top: elementPosition - 35, behavior: "smooth" });
+        const elementPosition = document.getElementById(ele).offsetTop
+        window.scrollTo({ top: elementPosition - 35, behavior: 'smooth' })
         if (this.$router.history.current.path !== `/${ele}`)
-          this.$router.push(`/${ele}`);
+          this.$router.push(`/${ele}`)
       }
-    }
-  }
-};
+    },
+  },
+}
 </script>
 
 <style lang="scss">
@@ -122,11 +123,11 @@ export default {
   z-index: 1;
 }
 
-.tooltip[x-placement^="top"] {
+.tooltip[x-placement^='top'] {
   margin-bottom: 5px;
 }
 
-.tooltip[x-placement^="top"] .tooltip-arrow {
+.tooltip[x-placement^='top'] .tooltip-arrow {
   border-width: 5px 5px 0 5px;
   border-left-color: transparent !important;
   border-right-color: transparent !important;
@@ -137,11 +138,11 @@ export default {
   margin-bottom: 0;
 }
 
-.tooltip[x-placement^="bottom"] {
+.tooltip[x-placement^='bottom'] {
   margin-top: 10px;
 }
 
-.tooltip[x-placement^="bottom"] .tooltip-arrow {
+.tooltip[x-placement^='bottom'] .tooltip-arrow {
   border-width: 0 5px 5px 5px;
   border-left-color: transparent !important;
   border-right-color: transparent !important;
@@ -152,11 +153,11 @@ export default {
   margin-bottom: 0;
 }
 
-.tooltip[x-placement^="right"] {
+.tooltip[x-placement^='right'] {
   margin-left: 5px;
 }
 
-.tooltip[x-placement^="right"] .tooltip-arrow {
+.tooltip[x-placement^='right'] .tooltip-arrow {
   border-width: 5px 5px 5px 0;
   border-left-color: transparent !important;
   border-top-color: transparent !important;
@@ -167,11 +168,11 @@ export default {
   margin-right: 0;
 }
 
-.tooltip[x-placement^="left"] {
+.tooltip[x-placement^='left'] {
   margin-right: 5px;
 }
 
-.tooltip[x-placement^="left"] .tooltip-arrow {
+.tooltip[x-placement^='left'] .tooltip-arrow {
   border-width: 5px 0 5px 5px;
   border-top-color: transparent !important;
   border-right-color: transparent !important;
@@ -194,13 +195,13 @@ export default {
   border-color: var(--bg);
 }
 
-.tooltip[aria-hidden="true"] {
+.tooltip[aria-hidden='true'] {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.5s, visibility 0.5s;
 }
 
-.tooltip[aria-hidden="false"] {
+.tooltip[aria-hidden='false'] {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s;

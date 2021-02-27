@@ -1,25 +1,38 @@
 module.exports = {
-  root: true,
   env: {
-    node: true
+    browser: true,
+    node: true,
+    es2021: true,
+    commonjs: true,
   },
-  'extends': [
-    'plugin:vue/recommended',
-    'eslint:recommended',
-    'plugin:prettier/recommended',
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'plugin:vue/essential',
+    'plugin:vue/base',
+    'prettier/vue',
+    'airbnb-base',
   ],
-  plugins: ['vue', 'prettier'],
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+    parser: 'babel-eslint',
+    ecmaFeatures: {
+      modules: true,
+      classes: true,
+    },
+  },
+  plugins: [
+    'vue',
+    'prettier',
+  ],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'vue/html-indent': [
+    // 'vue/html-indent': 'off',
+    'vue/attribute-hyphenation': ['error', 'always'],
+    'vue/return-in-computed-property': [
       'error',
-      type,
       {
-        attribute: 1,
-        baseIndent: 1,
-        closeBracket: 0,
-        alignAttributesVertically: true,
+        treatUndefinedAsUnspecified: true,
       },
     ],
     'vue/html-closing-bracket-newline': [
@@ -28,12 +41,16 @@ module.exports = {
         singleline: 'never',
         multiline: 'always',
       },
-    ]
+    ],
+    'vue/html-indent': [
+      'error',
+      type,
+      {
+        attribute: 1,
+        baseIndent: 0,
+        closeBracket: 0,
+        alignAttributesVertically: true,
+      },
+    ],
   },
-  parserOptions: {
-    parser: 'babel-eslint',
-    ecmaFeatures: {
-      modules: true,
-    },
-  }
-}
+};

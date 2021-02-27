@@ -7,7 +7,7 @@
         data-aos-once="true"
         data-aos-duration="1000"
       >
-        <span class="title text-center">skills.</span>
+        <span class="title text-center">{{ title }}.</span>
       </div>
       <hr width="50%" class="pg-line" />
       <br />
@@ -28,7 +28,7 @@
           <div><i :class="skill.icon"></i></div>
           <div class="title2 pt-2">{{ skill.title }}</div>
           <hr width="50%" class="pg-line" />
-          <span class="title3">{{ skill.info.join(", ") }}</span>
+          <span class="title3">{{ skill.info.join(', ') }}</span>
         </div>
       </div>
     </div>
@@ -36,16 +36,17 @@
 </template>
 
 <script>
-import info from "@/content";
+import info from '@/content'
 
 export default {
-  name: "Skills",
+  name: 'Skills',
   data() {
     return {
-      skills: info.skills
-    };
-  }
-};
+      title: info.sections.skills,
+      skills: info.skills,
+    }
+  },
+}
 </script>
 
 <style scoped>

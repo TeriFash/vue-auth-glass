@@ -10,81 +10,51 @@
           href="/"
           @click.prevent="$emit('scroll', 'home')"
         >
-
-
           <Logo />
         </a>
         <button
           class="navbar-toggler"
           type="button"
-          dataToggle="collapse"
-          data-target="#navbarSupported"
-          aria-controls="navbarSupported"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
-        > <span style=" font-size: 23px;"><i class="fas fa-bars"></i></span>
+        >
+          <span style=" font-size: 23px;"><i class="fas fa-bars"></i></span>
         </button>
 
-        
-
-        <div id="navbarSupported" class="collapse navbar-collapse">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-2">
-              <a
-                class="nav-link"
-                href="/about"
-                @click.prevent="$emit('scroll', 'about')"
-              >
-                about about
-              </a>
-            </li>
-            <li class="nav-item mx-2">
-              <a
-                class="nav-link"
-                href="/skills"
-                @click.prevent="$emit('scroll', 'skills')"
-              >
-                skills
-              </a>
-            </li>
-            <li class="nav-item mx-2 ">
-              <a
-                class="nav-link"
-                href="/portfolio"
-                @click.prevent="$emit('scroll', 'portfolio')"
-              >
-                portfolio
-              </a>
-            </li>
-            <li class="nav-item mx-2">
-              <a
-                class="nav-link"
-                href="/contact"
-                @click.prevent="$emit('scroll', 'contact')"
-              >
-                contact
-              </a>
-            </li>
+            <template v-for="(item, i) in navList">
+              <li :key="i" class="nav-item mx-2">
+                <a
+                  class="nav-link"
+                  :href="`/${item}`"
+                  @click.prevent="$emit('scroll', item)"
+                >
+                  {{ item }}
+                </a>
+              </li>
+            </template>
             <li class="nav-item ml-2">
               <DarkMode
                 :modes="['light', 'dark']"
                 :meta-theme-color="{
                   light: '#f4f6f5',
-                  dark: '#0e151b'
+                  dark: '#0e151b',
                 }"
                 @change-mode="toggleColorMode"
               >
-                <template v-slot="{ mode }">
+                <template #default="{ mode }">
                   <i
                     v-tooltip.bottom="switchText(mode)"
                     :class="{
                       'fas fa-moon': mode === 'dark',
-                      'far fa-moon': mode === 'light'
+                      'far fa-moon': mode === 'light',
                     }"
                   ></i>
                 </template>
-
-
               </DarkMode>
             </li>
           </ul>
@@ -95,54 +65,60 @@
 </template>
 
 <script>
-import Logo from "@/components/helpers/Logo";
-import info from "@/content";
-import { mapActions } from "vuex";
+import Logo from '@/components/helpers/Logo'
+import info from '@/content'
+import { mapActions } from 'vuex'
 
 export default {
-  name: "Navbar",
-   
-   components: {
-    Logo
-  },
+  name: 'Navbar',
 
   data() {
     return {
-      navbarConfig: info.config.navbar
-    };
+      navbarConfig: info.config.navbar,
+      sections: info.sections,
+    }
   },
 
-     components: {
-    Logo
+  computed: {
+    navList() {
+      const { home, recommendation, ...list } = this.sections
+
+      return list
+    },
   },
+
   methods: {
     ...mapActions({
-      toggleColorMode: "toggleColorMode"
+      toggleColorMode: 'toggleColorMode',
     }),
     switchText(text) {
-      let message;
+      let message
       switch (text) {
-        case "dark":
-          message = "To Light Mode";
-          break;
-        case "light":
-          message = "To Night Mode";
-          break;
-        case "system":
-          message = "To System Mode";
-          break;
+        case 'dark':
+          message = 'To Light Mode'
+          break
+        case 'light':
+          message = 'To Night Mode'
+          break
+        case 'system':
+          message = 'To System Mode'
+          break
       }
 
-      return message;
-    }
-  }
-};
+      return message
+    },
+  },
+
+  components: {
+    Logo,
+  },
+}
 </script>
 
 <style scoped lang="scss">
 .navbar {
   border-bottom: 1px solid var(--bg-l-2);
-  // position: fixed !important;
+  position: fixed !important;
   background: var(--bg);
 
   &.navbar-blur {

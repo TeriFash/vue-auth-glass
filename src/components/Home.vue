@@ -11,39 +11,21 @@
           <img :src="picture" />
         </div>
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12 pt-5">
-          <span class="home-title">hello there!</span>
+          <span class="home-title">{{ title }}!</span>
           <div>
             <p v-html="description"></p>
           </div>
           <div class="flex text-center pb-4">
-            <button
-              class="btn btn-outline-secondary mx-2"
-              @click="open('linkedin')"
-              v-tooltip.bottom="'LinkedIn'"
-            >
-              <i class="fab fa-linkedin"></i>
-            </button>
-            <button
-              class="btn btn-outline-secondary mx-2"
-              @click="open('github')"
-              v-tooltip.bottom="'GitHub'"
-            >
-              <i class="fab fa-github"></i>
-            </button>
-            <button
-              class="btn btn-outline-secondary mx-2"
-              @click="open('angellist')"
-              v-tooltip.bottom="'AngelList'"
-            >
-              <i class="fab fa-angellist"></i>
-            </button>
-            <button
-              class="btn btn-outline-secondary mx-2"
-              @click="open('resume')"
-              v-tooltip.bottom="'Resume'"
-            >
-              <i class="fa fa-file"></i>
-            </button>
+            <template v-for="(item, i) in social">
+              <button
+                :key="i"
+                class="btn btn-outline-secondary mx-2"
+                @click="open(item.link)"
+                v-tooltip.bottom="item.title"
+              >
+                <i :class="item.icon"></i>
+              </button>
+            </template>
           </div>
         </div>
       </div>
@@ -52,41 +34,26 @@
 </template>
 
 <script>
-import info from "@/content";
+import info from '@/content'
 
 export default {
-  name: "Home",
+  name: 'Home',
 
   data() {
     return {
       picture: info.flat_picture,
       description: info.description,
+      social: info.socialLinks,
       name: info.name,
-      linkedin: info.links.linkedin,
-      github: info.links.github,
-      angellist: info.links.angellist,
-      resume: info.links.resume
-    };
+      title: info.titleDescription,
+    }
   },
   methods: {
     open(link) {
-      switch (link) {
-        case "linkedin":
-          window.open(this.linkedin, "_blank");
-          break;
-        case "github":
-          window.open(this.github, "_blank");
-          break;
-        case "angellist":
-          window.open(this.angellist, "_blank");
-          break;
-        case "resume":
-          window.open(this.resume, "_blank");
-          break;
-      }
-    }
-  }
-};
+      window.open(link, '_blank')
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>

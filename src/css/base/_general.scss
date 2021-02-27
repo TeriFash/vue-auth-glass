@@ -1,8 +1,5 @@
 $transition-color: background-color 0.3s;
 
-* {
-  box-sizing: border-box;
-}
 
 *[disabled] {
   pointer-events: none;
@@ -26,7 +23,6 @@ body {
   border: 1px solid var(--bg-l-3);
   background-clip: content-box;
 }
-
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -82,8 +78,6 @@ a {
   font-weight: 400;
 }
 
-
-
 .pg-line {
   color: var(--color-violet-l-1);
   background: var(--color-violet-l-1);
@@ -111,8 +105,6 @@ a {
     // opacity: 0.8;
   }
 }
-
-
 
 .btn {
   border-color: var(--color-violet);

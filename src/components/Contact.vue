@@ -1,5 +1,5 @@
 <template>
-  <div class="py-4 p-st">
+  <div class="py-4 p-st contacts">
     <div class="container">
       <div
         class="text-center"
@@ -7,7 +7,7 @@
         data-aos-once="true"
         data-aos-duration="1000"
       >
-        <span class="title text-center">contact.</span>
+        <span class="title text-center">{{ title }}.</span>
       </div>
       <hr width="50%" class="pg-line" />
       <br />
@@ -85,46 +85,48 @@
 </template>
 
 <script>
-import config from "@/config";
-import emailjs from "emailjs-com";
-import Snackbar from "./helpers/Snackbar";
+import config from '@/config'
+import emailjs from 'emailjs-com'
+import Snackbar from './helpers/Snackbar'
+import info from '@/content'
 
 export default {
-  name: "Contact",
+  name: 'Contact',
 
   data() {
     return {
-      email: "",
-      name: "",
-      text: "",
+      email: '',
+      name: '',
+      text: '',
       showSnackbar: false,
-      snackbarMessage: "",
-      snackbarColor: ""
-    };
+      snackbarMessage: '',
+      snackbarColor: '',
+      title: info.sections.contact,
+    }
   },
-    components: {
-    Snackbar
+  components: {
+    Snackbar,
   },
   methods: {
     closeSnackbar(val) {
       if (!val) {
         setTimeout(() => {
-          this.showSnackbar = val;
-        }, 1000);
+          this.showSnackbar = val
+        }, 1000)
       }
     },
     sendEmail() {
       if (!this.email || !this.name || !this.text) {
-        this.showSnackbar = true;
-        this.snackbarMessage = "Please all the fields";
-        this.snackbarColor = "rgb(91, 93, 220)";
+        this.showSnackbar = true
+        this.snackbarMessage = 'Please all the fields'
+        this.snackbarColor = 'rgb(91, 93, 220)'
       } else {
         const obj = {
           user_email: this.email,
           from_name: this.name,
           message_html: this.text,
-          to_name: "Gura Viktor"
-        };
+          to_name: 'Gura Viktor',
+        }
 
         emailjs
           .send(
@@ -135,27 +137,31 @@ export default {
           )
           .then(
             result => {
-              this.showSnackbar = true;
-              this.snackbarMessage = "Thanks! Message recieved.";
-              this.snackbarColor = "#1aa260";
+              this.showSnackbar = true
+              this.snackbarMessage = 'Thanks! Message recieved.'
+              this.snackbarColor = '#1aa260'
 
-              this.email = "";
-              this.text = "";
-              this.name = "";
+              this.email = ''
+              this.text = ''
+              this.name = ''
             },
             error => {
-              this.showSnackbar = true;
-              this.snackbarMessage = "Oops! Something went wrong.";
-              this.snackbarColor = "rgb(221, 63, 120)";
+              this.showSnackbar = true
+              this.snackbarMessage = 'Oops! Something went wrong.'
+              this.snackbarColor = 'rgb(221, 63, 120)'
             }
-          );
+          )
       }
-    }
-  }
-};
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
+.contacts {
+  background: var(--bg-l-1);
+}
+
 .pinput {
   background: var(--bg-l-2);
   font-size: 18px;
@@ -178,16 +184,6 @@ export default {
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .pinput {
-    width: 90%;
-  }
-
-  .btn {
-    width: 90%;
-  }
-}
-
 .btn {
   width: 70%;
   background-color: var(--color-violet);
@@ -197,6 +193,22 @@ export default {
   &:hover,
   &:focus {
     color: var(--color-white);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .pinput {
+    width: 90%;
+  }
+
+  .btn {
+    // width: 90%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .btn {
+    width: 90%;
   }
 }
 </style>

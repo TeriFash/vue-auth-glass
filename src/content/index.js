@@ -2,12 +2,22 @@ let info = {
   name: "Gura Viktor",
   logo_name: "Viktor",
   flat_picture: require("@/assets/potrait.svg"),
+  copyright: '2020 Copyright',
   config: {
     use_cookies: true,
     navbar: {
       blur: false
     }
   },
+  sections: {
+    home: 'home',
+    about: 'about',
+    skills: 'skills',
+    portfolio: 'portfolio',
+    recommendation: 'recommendation',
+    contact: 'contact',
+  },
+  titleDescription: 'hello there',
   description:
     "A second year Computer Science graduate student at Indiana University Bloomington with an interest in Software Development, UX Design and Artificial Intelligence - and seeking exciting opportunities related to the same.<br><br>I am a detail oriented person and I keep my goals and tasks organized to maintain productivity. I would bring to table a wide range of software skills, ranging from design and development to writing scripts for intelligent agents. I believe that the skills that I have attained from the dynamic environment and competitive university life define me, and I am looking forward to implementing and polishing them in any opportunity that I receive. ",
   links: {
@@ -16,6 +26,38 @@ let info = {
     angellist: "",
     resume:""
   },
+  socialLinks: [
+    {
+      link: 'https://linkedin.com/in/viktor-gura/',
+      title: 'LinkedIn',
+      text: 'linkedin',
+      icon: 'fab fa-linkedin'
+    },
+    {
+      link: 'https://github.com/TeriFash',
+      title: 'GitHub',
+      text: 'github',
+      icon: 'fab fa-github'
+    },
+    {
+      link: 'https://telegram.im/@TeriFash',
+      title: 'Telegram',
+      text: 'telegram',
+      icon: 'fab fa-telegram'
+    },
+    // {
+    //   link: 'https://www.facebook.com/profile.php?id=100015717390714',
+    //   title: 'FaceBook',
+    //   text: 'facebook',
+    //   icon: 'fab fa-facebook'
+    // },
+    {
+      link: '',
+      title: 'Resume',
+      text: 'resume',
+      icon: 'fa fa-file'
+    }
+  ],
   education: [
     {
       name: "Indiana University Bloomington",

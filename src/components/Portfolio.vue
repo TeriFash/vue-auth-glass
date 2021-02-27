@@ -1,5 +1,5 @@
 <template>
-  <div class="py-4 p-st">
+  <div class="portfolio py-4 p-st">
     <div class="container">
       <div
         class="text-center"
@@ -7,7 +7,7 @@
         data-aos-once="true"
         data-aos-duration="1000"
       >
-        <span class="title text-center">portfolio.</span>
+        <span class="title text-center">{{ title }}.</span>
       </div>
       <hr width="50%" />
 
@@ -40,7 +40,7 @@
         </v-tab>
 
         <v-tab title="design">
-          <div class="row">
+          <div class="row container-second">
             <div
               v-for="(design, idx) in desgin_info"
               :key="idx"
@@ -64,7 +64,7 @@
               </vueper-slides>
               <div
                 style="width: 100%; display: flex; justify-content: space-between"
-                class="mt-2"
+                class="mt-2 container-second-info"
               >
                 <div>
                   <div class="title2" style="font-weight: 500;">
@@ -114,21 +114,21 @@
 </template>
 
 <script>
-import Card from "@/components/helpers/Card";
-import Modal from "@/components/helpers/Modal";
-import DesignModal from "@/components/helpers/DesignModal";
-import Carousel from "@/components/helpers/Carousel";
-import info from "@/content";
+import Card from '@/components/helpers/Card'
+import Modal from '@/components/helpers/Modal'
+import DesignModal from '@/components/helpers/DesignModal'
+import Carousel from '@/components/helpers/Carousel'
+import info from '@/content'
 
-import { VueTabs, VTab } from "vue-nav-tabs";
-import "vue-nav-tabs/themes/vue-tabs.css";
+import { VueTabs, VTab } from 'vue-nav-tabs'
+import 'vue-nav-tabs/themes/vue-tabs.css'
 
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
-import { mapGetters } from "vuex";
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: "Portfolio",
+  name: 'Portfolio',
   components: {
     Card,
     Modal,
@@ -136,10 +136,11 @@ export default {
     VTab,
     VueperSlides,
     VueperSlide,
-    DesignModal
+    DesignModal,
   },
   data() {
     return {
+      title: info.sections.portfolio,
       all_info: info.portfolio,
       desgin_info: info.portfolio_design,
       portfolio_info: [],
@@ -148,83 +149,87 @@ export default {
       modal_info: {},
       design_modal_info: {},
       number: 3,
-      showBtn: "show more",
+      showBtn: 'show more',
       shower: 0,
       data: [
         '<div class="example-slide">Slide 1</div>',
         '<div class="example-slide">Slide 2</div>',
-        '<div class="example-slide">Slide 3</div>'
-      ]
-    };
+        '<div class="example-slide">Slide 3</div>',
+      ],
+    }
   },
   created() {
     for (let i = 0; i < this.number; i++) {
-      this.portfolio_info.push(this.all_info[i]);
+      this.portfolio_info.push(this.all_info[i])
     }
   },
   watch: {
     number() {
-      this.portfolio_info = [];
+      this.portfolio_info = []
       for (let i = 0; i < this.number; i++) {
-        this.portfolio_info.push(this.all_info[i]);
+        this.portfolio_info.push(this.all_info[i])
       }
-    }
+    },
   },
   computed: {
     ...mapGetters({
-      colorMode: "colorMode"
-    })
+      colorMode: 'colorMode',
+    }),
   },
   methods: {
     next() {
-      this.$refs.flickity.next();
+      this.$refs.flickity.next()
     },
 
     previous() {
-      this.$refs.flickity.previous();
+      this.$refs.flickity.previous()
     },
     closeModal() {
-      this.showModal = false;
-      this.showDesignModal = false;
-      document.getElementsByTagName("body")[0].classList.remove("modal-open");
+      this.showModal = false
+      this.showDesignModal = false
+      document.getElementsByTagName('body')[0].classList.remove('modal-open')
     },
     showModalFn(portfolio) {
-      this.modal_info = portfolio;
-      this.showModal = true;
+      this.modal_info = portfolio
+      this.showModal = true
     },
     showDesignModalFn(design_portfolio) {
-      this.design_modal_info = design_portfolio;
-      this.showDesignModal = true;
+      this.design_modal_info = design_portfolio
+      this.showDesignModal = true
     },
     showMore() {
       if (this.number != this.all_info.length) {
-        this.number += 3;
+        this.number += 3
 
         window.scrollBy({
-          top: document.getElementsByClassName("smcard")[0].clientHeight,
-          behavior: "smooth"
-        });
+          top: document.getElementsByClassName('smcard')[0].clientHeight,
+          behavior: 'smooth',
+        })
 
         if (this.number > this.all_info.length)
-          this.number = this.all_info.length;
+          this.number = this.all_info.length
       }
 
       if (this.number == this.all_info.length && this.shower == 0) {
-        this.shower = 1;
-        this.showBtn = "show less";
+        this.shower = 1
+        this.showBtn = 'show less'
       } else if (this.number == this.all_info.length && this.shower == 1) {
-        const elementPosition = document.getElementById("portfolio").offsetTop;
-        window.scrollTo({ top: elementPosition + 5, behavior: "smooth" });
-        this.shower = 0;
-        this.number = 3;
-        this.showBtn = "show more";
+        const elementPosition = document.getElementById('portfolio').offsetTop
+        window.scrollTo({ top: elementPosition + 5, behavior: 'smooth' })
+        this.shower = 0
+        this.number = 3
+        this.showBtn = 'show more'
       }
-    }
-  }
-};
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
+.portfolio {
+  background-color: var(--bg-l-1);
+}
+
 .modal-enter,
 .modal-leave-active {
   opacity: 0;
@@ -287,7 +292,7 @@ export default {
       }
 
       &:after {
-        content: "";
+        content: '';
         width: 20%;
         position: absolute;
         bottom: 3px;
@@ -415,5 +420,23 @@ export default {
 
 .date {
   opacity: 0.75;
+}
+
+.container-second {
+  .btn {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .container-second {
+    &-info {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
 }
 </style>
