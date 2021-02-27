@@ -58,6 +58,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.recommendation {
+  background: var(--bg-d-1);
+}
 .title2 {
   font-size: 18px;
   font-style: italic;

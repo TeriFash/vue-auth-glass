@@ -6,7 +6,7 @@ let info = {
   config: {
     use_cookies: true,
     navbar: {
-      blur: false
+      blur: true
     }
   },
   sections: {
@@ -20,12 +20,6 @@ let info = {
   titleDescription: 'hello there',
   description:
     "A second year Computer Science graduate student at Indiana University Bloomington with an interest in Software Development, UX Design and Artificial Intelligence - and seeking exciting opportunities related to the same.<br><br>I am a detail oriented person and I keep my goals and tasks organized to maintain productivity. I would bring to table a wide range of software skills, ranging from design and development to writing scripts for intelligent agents. I believe that the skills that I have attained from the dynamic environment and competitive university life define me, and I am looking forward to implementing and polishing them in any opportunity that I receive. ",
-  links: {
-    linkedin: "https://linkedin.com/in/viktor-gura/",
-    github: "https://github.com/TeriFash",
-    angellist: "",
-    resume:""
-  },
   socialLinks: [
     {
       link: 'https://linkedin.com/in/viktor-gura/',
@@ -55,7 +49,7 @@ let info = {
       link: '',
       title: 'Resume',
       text: 'resume',
-      icon: 'fa fa-file'
+      icon: 'fas fa-file-code'
     }
   ],
   education: [

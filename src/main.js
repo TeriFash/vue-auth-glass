@@ -19,6 +19,7 @@ Vue.use(VueCookie);
 Vue.use(VueParallaxJs);
 Vue.use(VueDarkMode);
 
+Vue.prototype.$eventBus = new Vue();
 Vue.config.productionTip = false;
 
 new Vue({

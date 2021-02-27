@@ -41,8 +41,8 @@
               <DarkMode
                 :modes="['light', 'dark']"
                 :meta-theme-color="{
-                  light: '#f4f6f5',
-                  dark: '#0e151b',
+                  light: '#ebecf0',
+                  dark: '#383838',
                 }"
                 @change-mode="toggleColorMode"
               >
@@ -88,9 +88,7 @@ export default {
   },
 
   methods: {
-    ...mapActions({
-      toggleColorMode: 'toggleColorMode',
-    }),
+    ...mapActions(['toggleColorMode']),
     switchText(text) {
       let message
       switch (text) {
@@ -117,18 +115,23 @@ export default {
 
 <style scoped lang="scss">
 .navbar {
-  border-bottom: 1px solid var(--bg-l-2);
+  border-bottom: 1px solid var(--bg-l-1);
   position: fixed !important;
-  background: var(--bg);
+  background: var(--bg-d-1);
 
   &.navbar-blur {
-    background-color: var(--bg);
+    background: var(--bg-d-1);
     backdrop-filter: blur(12px);
   }
 }
 
 .nav-link {
   font-weight: 500;
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
 }
 
 .nav-item {
@@ -148,7 +151,8 @@ button {
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
 
-  &:hover {
+  &:hover,
+  &:focus {
     border: none;
     outline: none;
     color: var(--color-secondary);

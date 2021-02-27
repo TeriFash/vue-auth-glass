@@ -4,16 +4,16 @@
 
 <script>
 export default {
-  name: "Wave"
-};
+  name: 'Wave',
+}
 </script>
 
 <style scoped>
 span.wave {
-  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
-  animation-duration: 2.5s; /* Change to speed up or slow down */
-  animation-iteration-count: infinite; /* Never stop waving :) */
-  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
   display: inline-block;
 }
 
@@ -23,7 +23,7 @@ span.wave {
   }
   10% {
     transform: rotate(-10deg);
-  } /* The following four values can be played with to make the waving more or less extreme */
+  }
   20% {
     transform: rotate(12deg);
   }
@@ -35,7 +35,7 @@ span.wave {
   }
   50% {
     transform: rotate(0deg);
-  } /* Reset for the last half to pause */
+  }
   100% {
     transform: rotate(0deg);
   }

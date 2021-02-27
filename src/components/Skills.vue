@@ -51,7 +51,7 @@ export default {
 
 <style scoped>
 .skills {
-  background: var(--bg-d-1);
+  /* background: var(--bg-d-1); */
 }
 
 .fa,

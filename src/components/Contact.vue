@@ -9,7 +9,7 @@
       >
         <span class="title text-center">{{ title }}.</span>
       </div>
-      <hr width="50%" class="pg-line" />
+      <hr class="pg-line w-50" />
       <br />
       <div class="text-center">
         <div
@@ -60,16 +60,29 @@
           ></textarea>
         </div>
 
-        <div>
-          <button
-            @click.prevent="sendEmail"
-            class="mt-1 btn mb-3"
-            data-aos="fade"
-            data-aos-once="true"
-            data-aos-duration="1000"
-            data-aos-offset="50"
-          >
+        <div
+          class="mt-1"
+          data-aos="fade"
+          data-aos-once="true"
+          data-aos-duration="1000"
+          data-aos-offset="50"
+        >
+          <button @click.prevent="sendEmail" class="mt-1 btn btn-full mb-3">
             Send
+          </button>
+        </div>
+      </div>
+
+      <div class="flex flex-column align-items-center text-center py-4">
+        <h6 class="pb-4">Message: {{ message }}</h6>
+        <div class="flex w-50 py-2">
+          <button class="btn mx-2 btn-full" @click="onLoadClick">
+            <i class="fas fa-download mx-2"></i>
+            load
+          </button>
+          <button class="btn mx-2 btn-full" @click="onClearClick">
+            <i class="fas fa-trash-alt mx-2"></i>
+            clear
           </button>
         </div>
       </div>
@@ -98,6 +111,7 @@ export default {
       email: '',
       name: '',
       text: '',
+      message: '',
       showSnackbar: false,
       snackbarMessage: '',
       snackbarColor: '',
@@ -153,23 +167,36 @@ export default {
           )
       }
     },
+    loadMessage() {
+      return new Promise(resolve => {
+        setTimeout(() => resolve('Hello world!'), 3000)
+      })
+    },
+    async onLoadClick() {
+      this.$store.commit('SET_LOADING', true)
+      this.message = await this.loadMessage()
+      this.$store.commit('SET_LOADING', false)
+    },
+    onClearClick() {
+      this.message = ''
+    },
   },
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .contacts {
-  background: var(--bg-l-1);
+  // background: var(--bg-l-1);
 }
 
 .pinput {
-  background: var(--bg-l-2);
+  background: var(--bg-d-2);
   font-size: 18px;
   outline: none;
-  border: 1px solid var(--bg-l-2);
+  border: 1px solid var(--bg-d-2);
   border-radius: 7px;
   padding: 10px;
-  width: 50%;
+  width: 70%;
   transition: all 0.5s;
   color: var(--color);
 
@@ -185,24 +212,12 @@ export default {
 }
 
 .btn {
-  width: 70%;
-  background-color: var(--color-violet);
-  color: var(--color-white);
-  // transition: all 0.5s !important;
-
-  &:hover,
-  &:focus {
-    color: var(--color-white);
-  }
+  width: 50%;
 }
 
 @media screen and (max-width: 1000px) {
   .pinput {
     width: 90%;
-  }
-
-  .btn {
-    // width: 90%;
   }
 }
 

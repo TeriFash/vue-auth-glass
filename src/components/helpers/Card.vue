@@ -1,6 +1,6 @@
 <template>
   <div class="my-3 mx-3">
-    <div class="card">
+    <div class="card smcard">
       <div class="card-img-container">
         <img
           class="card-img-top"
@@ -48,29 +48,35 @@
 
 <script>
 export default {
-  name: "Card",
+  name: 'Card',
   props: {
     portfolio: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     open(url) {
-      window.open(url, "_blank");
+      window.open(url, '_blank')
     },
     showModal() {
-      this.$emit("show", this.portfolio);
-    }
-  }
-};
+      this.$emit('show', this.portfolio)
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
+$border-radius: 7px;
+
 .card-img-container {
   min-height: 180px;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  background-color: var(--color-white);
 
   img {
     width: 100%;
@@ -78,8 +84,8 @@ export default {
 }
 
 img {
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
@@ -114,13 +120,12 @@ div.img-div {
 }
 
 .card {
-  // background-color: var(--bg-l-1);
-  border-radius: 7px;
-  // overflow: hidden;
+  background: var(--bg-l-1);
+  border-radius: $border-radius;
   border: none;
   box-shadow: 3px 3px 17px var(--bg-d-3);
   transition: all 0.5s;
-  height: 460px;
+  min-height: 460px;
 
   &:hover {
     transition: all 0.5s;
@@ -134,15 +139,18 @@ div.img-div {
 
   button {
     width: 47%;
+    color: var(--color-secondary);
+    &:hover,
+    &:focus {
+      color: var(--color-white);
+    }
   }
 }
 
 .card-body {
-  border-top: 1px solid var(--bg-l-1);
-  border-bottom-right-radius: 7px;
-  border-bottom-left-radius: 7px;
-  background-color: var(--bg-d-2);
-  // overflow: hidden;
+  border-top: 1px solid var(--bg-d-1);
+  border-bottom-right-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
 }
 
 .title2,
@@ -154,8 +162,7 @@ div.img-div {
   font-size: 13px;
 
   &:hover {
-    box-shadow: 2px 2px 5px var(--color-secondary);
-    opacity: 1;
+    box-shadow: 2px 2px 5px var(--color-violet);
   }
 }
 </style>

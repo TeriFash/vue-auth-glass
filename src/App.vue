@@ -3,13 +3,14 @@
     <Navbar @scroll="scrollTo" />
     <div class="parent">
       <Home />
-      <About :id="sections.about" />
-      <Skills :id="sections.skills" />
-      <Portfolio :id="sections.portfolio" />
+      <About id="about" />
+      <Skills id="skills" />
+      <Portfolio id="portfolio" />
       <Recommendation />
-      <Contact :id="sections.contact" />
+      <Contact id="contact" />
       <Footer />
     </div>
+    <Loader />
   </div>
 </template>
 
@@ -22,14 +23,16 @@ import Portfolio from '@/components/Portfolio'
 import Recommendation from '@/components/Recommendation'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import Loader from '@/components/helpers/Loader'
 
 import info from '@/content'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
   components: {
     Navbar,
+    Loader,
     Home,
     About,
     Skills,
@@ -45,9 +48,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      colorMode: 'colorMode',
-    }),
+    ...mapGetters(['colorMode']),
     isTheme() {
       return this.colorMode && localStorage.getItem('colorMode')
     },
@@ -59,14 +60,11 @@ export default {
         window.scrollTo({ top: elementPosition - 35, behavior: 'smooth' })
       }
     })
-    // setTimeout(() => {
-    //   document.body.style.transition = "background-color .3s";
-    // }, 1000);
+    setTimeout(() => {
+      document.body.style.transition = 'background-color .3s'
+    }, 1000)
   },
   methods: {
-    ...mapActions({
-      initializeMode: 'initializeMode',
-    }),
     scrollTo(ele) {
       if (ele == 'home') {
         this.$router.push(`/`)
@@ -90,7 +88,7 @@ export default {
 }
 
 .parent {
-  background: var(--bg-d-1);
+  // background: var(--bg-d-1);
   margin-top: 38px;
   padding-top: 40px;
   position: relative;

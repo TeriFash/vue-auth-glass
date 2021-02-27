@@ -9,7 +9,7 @@
       >
         <span class="title text-center">{{ title }}.</span>
       </div>
-      <hr width="50%" />
+      <hr class="pb-line w-50" />
 
       <vue-tabs :activeTextColor="colorMode === 'dark' ? '#ebf4f1' : '#243746'">
         <v-tab title="development">
@@ -227,7 +227,7 @@ export default {
 
 <style scoped lang="scss">
 .portfolio {
-  background-color: var(--bg-l-1);
+  // background-color: var(--bg-l-1);
 }
 
 .modal-enter,
@@ -416,10 +416,6 @@ export default {
 
 .badge {
   font-size: 13px;
-}
-
-.date {
-  opacity: 0.75;
 }
 
 .container-second {

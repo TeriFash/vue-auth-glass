@@ -3,18 +3,15 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="title1 px-4 pt-3">
+          <div class="title1 px-4 py-3">
             <span>{{ portfolio.name }}</span>
-            <a
-              class="pull-right"
-              style="font-size: 18px;"
-              @click="$emit('close')"
+            <a class="pull-right" @click="$emit('close')"
               ><i class="fas fa-times"></i
             ></a>
-            <hr class="my-1 pg-line" />
           </div>
           <div class="modal-body my-0 pb-0 px-4 pt-0">
-            <div class="mb-2 date pb-line">
+            <div class="mb-2 date">
+              <i class="fas fa-calendar-alt mr-3"></i>
               <span>{{ portfolio.date }} • {{ portfolio.category }}</span>
             </div>
             <div class="pb-1 bheight">
@@ -26,10 +23,10 @@
               >
             </div>
 
-            <div style="text-align: justify;">
-              <span v-html="portfolio.description"></span>
+            <div>
+              <span class="text-justify" v-html="portfolio.description"></span>
             </div>
-            <hr />
+            <hr class="pg-line" />
             <div>
               <Gallery :images="portfolio.pictures" :design="true" />
             </div>
@@ -46,32 +43,32 @@
 </template>
 
 <script>
-import Carousel from "./Carousel";
-import Gallery from "./Gallery";
+import Carousel from './Carousel'
+import Gallery from './Gallery'
 
 export default {
-  name: "Modal",
+  name: 'Modal',
   components: {
     Carousel,
-    Gallery
+    Gallery,
   },
   props: {
     showModal: {
-      type: Boolean
+      type: Boolean,
     },
     portfolio: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   created() {
-    document.getElementsByTagName("body")[0].classList.add("modal-open");
+    document.getElementsByTagName('body')[0].classList.add('modal-open')
   },
   methods: {
     open(url) {
-      window.open(url, "_blank");
-    }
-  }
-};
+      window.open(url, '_blank')
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
@@ -81,7 +78,7 @@ export default {
 
 .date {
   font-size: 14px;
-  font-weight: 400;
+  // font-weight: 400;
 }
 
 .modal-mask {
@@ -106,6 +103,7 @@ export default {
 }
 
 .modal-container {
+  background-color: var(--bg-d-1);
   width: 40%;
   max-height: 70%;
   margin: 0px auto;
@@ -114,6 +112,15 @@ export default {
   transition: all 0.3s ease;
   flex-direction: column;
   display: flex; /*added*/
+
+  .btn {
+    color: var(--color-secondary);
+
+    &:hover,
+    &:focus {
+      color: var(--color-white);
+    }
+  }
 }
 
 @media screen and (max-width: 1600px) {
@@ -148,5 +155,18 @@ export default {
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
   transform: scale(1.1);
+}
+
+.title1 a {
+  font-size: 18px;
+}
+
+.fas,
+.fab {
+  color: var(--color);
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+  }
 }
 </style>

@@ -7,7 +7,7 @@
         data-aos-once="true"
         data-aos-duration="1000"
       >
-        <span class="title text-center">about me.</span>
+        <span class="title text-center">{{ title }}.</span>
       </div>
       <hr width="50%" class="pg-line" />
       <div class="row">
@@ -23,31 +23,32 @@
 </template>
 
 <script>
-import Timeline from "@/components/helpers/Timeline";
-import info from "@/content";
+import Timeline from '@/components/helpers/Timeline'
+import info from '@/content'
 
 export default {
-  name: "About",
+  name: 'About',
   components: {
-    Timeline
+    Timeline,
   },
   data() {
     return {
+      title: info.sections.about,
       education: {
-        title: "education",
-        data: info.education
+        title: 'education',
+        data: info.education,
       },
       experience: {
-        title: "experiences",
-        data: info.experience
-      }
-    };
-  }
-};
+        title: 'experiences',
+        data: info.experience,
+      },
+    }
+  },
+}
 </script>
 
 <style scoped lang="scss">
 .about {
-  background-color: var(--bg-l-1);
+  background: var(--bg-d-1);
 }
 </style>

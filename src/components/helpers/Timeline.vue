@@ -30,14 +30,14 @@
                 <div class="px-2 title2">{{ e.name }}, {{ e.place }}</div>
                 <div class="px-2 title3">
                   {{ e.degree || e.position }}
-                  {{ e.gpa ? "(" + e.gpa + ")" : "" }}
+                  {{ e.gpa ? '(' + e.gpa + ')' : '' }}
                 </div>
                 <div class="px-2 date">{{ e.date }}</div>
-                <div class="px-2 pb-2 pt-2" style="text-align: justify;">
+                <div class="px-2 py-2 text-justify">
                   {{ e.description }}
                 </div>
                 <span
-                  class="mx-2 badge p-2 mb-2"
+                  class="mx-1 badge p-2 mb-2"
                   v-for="s in e.skills"
                   :key="s"
                   >{{ s }}</span
@@ -54,13 +54,13 @@
 
 <script>
 export default {
-  name: "Timeline",
+  name: 'Timeline',
   props: {
     data: {
-      type: Object
-    }
-  }
-};
+      type: Object,
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
@@ -74,11 +74,11 @@ export default {
 
 .badge {
   color: var(--color-white);
-  background-color: var(--color-violet);
+  background-color: var(--color-violet-d-1);
   font-weight: 600;
 
   &:hover {
-    box-shadow: 2px 2px 5px var(--color-secondary);
+    box-shadow: 2px 2px 5px var(--color-violet);
     opacity: 1;
   }
 }
@@ -88,7 +88,7 @@ ul.timeline {
   position: relative;
 
   &:before {
-    content: " ";
+    content: ' ';
     background: var(--color-secondary);
     display: inline-block;
     position: absolute;
@@ -104,7 +104,7 @@ ul.timeline {
     padding-left: 20px;
 
     &:before {
-      content: " ";
+      content: ' ';
       background: var(--color-violet);
       display: inline-block;
       position: absolute;

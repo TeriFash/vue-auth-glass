@@ -3,7 +3,7 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="title1 px-4 pt-3">
+          <div class="title1 px-4 py-3">
             <span
               ><a href="#" @click.prevent="open(portfolio.visit)">{{
                 portfolio.name
@@ -15,10 +15,11 @@
               @click="$emit('close')"
               ><i class="fas fa-times"></i
             ></a>
-            <hr class="my-1 pg-line" />
+            <!-- <hr class="my-1 pg-line" /> -->
           </div>
-          <div class="modal-body my-0 pb-0 px-4 pt-0">
-            <div class="mb-2 date">
+          <div class="modal-body pt-2">
+            <div class="mb-3 date">
+              <i class="fas fa-calendar-alt mr-3"></i>
               <span>{{ portfolio.date }} • {{ portfolio.category }}</span>
             </div>
             <div class="pb-1 bheight">
@@ -30,18 +31,21 @@
               >
             </div>
 
-            <div style="text-align: justify;">
-              <span v-html="portfolio.description"></span>
+            <div>
+              <span class="text-justify" v-html="portfolio.description"></span>
             </div>
             <hr />
             <div>
               <Gallery :images="portfolio.pictures" />
             </div>
           </div>
-
           <div class="text-center pb-3">
             <hr class="mt-1 mb-3 pg-line" />
-            <button class="btn w-25 mr-3" @click="open(portfolio.github)">
+            <button
+              class="btn w-25 mr-3 d-inline-flex justify-content-center align-items-center"
+              @click="open(portfolio.github)"
+            >
+              <i class="fab fa-github mr-3"></i>
               github
             </button>
             <button class="btn w-25" @click="$emit('close')">close</button>
@@ -53,32 +57,32 @@
 </template>
 
 <script>
-import Carousel from "./Carousel";
-import Gallery from "./Gallery";
+import Carousel from './Carousel'
+import Gallery from './Gallery'
 
 export default {
-  name: "Modal",
+  name: 'Modal',
   components: {
     Carousel,
-    Gallery
+    Gallery,
   },
   props: {
     showModal: {
-      type: Boolean
+      type: Boolean,
     },
     portfolio: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   created() {
-    document.getElementsByTagName("body")[0].classList.add("modal-open");
+    document.getElementsByTagName('body')[0].classList.add('modal-open')
   },
   methods: {
     open(url) {
-      window.open(url, "_blank");
-    }
-  }
-};
+      window.open(url, '_blank')
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
@@ -117,6 +121,15 @@ export default {
   transition: all 0.3s ease;
   flex-direction: column;
   display: flex; /*added*/
+
+  .btn {
+    color: var(--color-secondary);
+
+    &:hover,
+    &:focus {
+      color: var(--color-white);
+    }
+  }
 }
 
 @media screen and (max-width: 1600px) {
@@ -138,7 +151,7 @@ export default {
 }
 
 .modal-body {
-  margin: 20px 0;
+  padding: 0 24px;
   overflow-y: scroll;
   max-height: inherit;
 }
@@ -155,10 +168,22 @@ export default {
 
 .title1 a {
   text-decoration: none;
+  color: var(--color);
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+  }
 }
 
 .fas,
 .fab {
   color: var(--color);
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+  }
 }
 </style>
