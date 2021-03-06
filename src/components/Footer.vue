@@ -19,7 +19,7 @@
 <script>
 import SocialLinks from '@/components/helpers/SocialLinks'
 import Wave from '@/components/helpers/Wave'
-import info from '@/content'
+import info from '@/data'
 
 export default {
   name: 'Footer',

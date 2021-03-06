@@ -24,7 +24,7 @@
 
 <script>
 import Timeline from '@/components/helpers/Timeline'
-import info from '@/content'
+import info from '@/data'
 
 export default {
   name: 'About',

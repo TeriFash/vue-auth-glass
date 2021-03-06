@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import info from '@/content'
+import info from '@/data'
 
 export default {
   name: 'SocialLinks',

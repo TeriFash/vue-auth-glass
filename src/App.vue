@@ -25,7 +25,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import Loader from '@/components/helpers/Loader'
 
-import info from '@/content'
+import info from '@/data'
 import { mapGetters } from 'vuex'
 
 export default {

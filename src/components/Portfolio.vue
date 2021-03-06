@@ -118,7 +118,7 @@ import Card from '@/components/helpers/Card'
 import Modal from '@/components/helpers/Modal'
 import DesignModal from '@/components/helpers/DesignModal'
 import Carousel from '@/components/helpers/Carousel'
-import info from '@/content'
+import info from '@/data'
 
 import { VueTabs, VTab } from 'vue-nav-tabs'
 import 'vue-nav-tabs/themes/vue-tabs.css'

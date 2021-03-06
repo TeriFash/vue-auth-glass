@@ -66,7 +66,7 @@
 
 <script>
 import Logo from '@/components/helpers/Logo'
-import info from '@/content'
+import info from '@/data'
 import { mapActions } from 'vuex'
 
 export default {

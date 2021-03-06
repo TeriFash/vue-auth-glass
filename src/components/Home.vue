@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import info from '@/content'
+import info from '@/data'
 import SocialLinks from '@/components/helpers/SocialLinks'
 
 export default {

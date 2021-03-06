@@ -101,7 +101,7 @@
 import config from '@/config'
 import emailjs from 'emailjs-com'
 import Snackbar from './helpers/Snackbar'
-import info from '@/content'
+import info from '@/data'
 
 export default {
   name: 'Contact',
