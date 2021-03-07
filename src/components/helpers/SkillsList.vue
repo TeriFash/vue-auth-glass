@@ -24,13 +24,12 @@
           <img :src="item.img" :alt="item.text" :title="item.title" />
         </div>
 
-        <button
-          class="btn btn-outline skills-list-btn"
+        <b-button
           @click.prevent="showMore"
           v-if="data.list.length > number && showBtn !== 'show less'"
         >
           {{ showBtn }}...
-        </button>
+        </b-button>
       </div>
     </div>
   </div>
@@ -98,11 +97,11 @@ export default {
 
 <style scoped lang="scss">
 .skills-wrapper {
-  background: var(--color-white);
+  // background: var(--color-white);
   border-radius: 7px;
 
   .title2 {
-    color: var(--bg);
+    // color: var(--bg);
   }
 }
 
@@ -127,7 +126,7 @@ export default {
 
   &-btn {
     min-width: 120px;
-    color: var(--bg) !important;
+    // color: var(--bg) !important;
   }
 }
 

@@ -73,12 +73,12 @@ export default {
 }
 
 .badge {
-  color: var(--color-white);
-  background-color: var(--color-violet-d-1);
+  // color: var(--color-white);
+  background-color: var(--primary);
   font-weight: 600;
 
   &:hover {
-    box-shadow: 2px 2px 5px var(--color-violet);
+    box-shadow: 2px 2px 5px var(--primary);
     opacity: 1;
   }
 }
@@ -89,7 +89,7 @@ ul.timeline {
 
   &:before {
     content: ' ';
-    background: var(--color-secondary);
+    background: var(--light);
     display: inline-block;
     position: absolute;
     left: 29px;
@@ -105,11 +105,11 @@ ul.timeline {
 
     &:before {
       content: ' ';
-      background: var(--color-violet);
+      background: var(--primary);
       display: inline-block;
       position: absolute;
       border-radius: 50%;
-      border: 2px solid var(--color-violet);
+      border: 2px solid var(--primary);
       left: 20px;
       width: 20px;
       height: 20px;

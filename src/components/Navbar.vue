@@ -15,13 +15,17 @@
         <button
           class="navbar-toggler"
           type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span style=" font-size: 23px;"><i class="fas fa-bars"></i></span>
+          <span class="navbar-toggler-icon">
+            <b-icon icon="text-right"></b-icon>
+          </span>
         </button>
 
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
@@ -37,23 +41,23 @@
                 </a>
               </li>
             </template>
-            <li class="nav-item ml-2">
+            <li class="nav-item ml-3">
               <DarkMode
+                class="nav-item-theme"
                 :modes="['light', 'dark']"
                 :meta-theme-color="{
                   light: '#ebecf0',
-                  dark: '#383838',
+                  dark: '#303030',
                 }"
                 @change-mode="toggleColorMode"
               >
                 <template #default="{ mode }">
-                  <i
+                  <b-icon
+                    :icon="`toggle-${mode === 'dark' ? 'on' : 'off'}`"
+                    :variant="mode === 'dark' ? 'primary' : ''"
                     v-tooltip.bottom="switchText(mode)"
-                    :class="{
-                      'fas fa-moon': mode === 'dark',
-                      'far fa-moon': mode === 'light',
-                    }"
-                  ></i>
+                    scale="2"
+                  ></b-icon>
                 </template>
               </DarkMode>
             </li>
@@ -113,15 +117,16 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .navbar {
-  border-bottom: 1px solid var(--bg-l-1);
-  position: fixed !important;
-  background: var(--bg-d-1);
+  &-brand {
+    line-height: 28px !important;
 
-  &.navbar-blur {
-    background: var(--bg-d-1);
-    backdrop-filter: blur(12px);
+    .logo-div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
@@ -135,33 +140,17 @@ export default {
 }
 
 .nav-item {
-  button {
-    padding-left: 0;
+  &-theme {
+    height: 100%;
+    min-width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+    svg {
+      transition: all 0.5s;
+    }
   }
-}
-
-.navbar-brand,
-.nav-link {
-  color: var(--color-secondary);
-}
-
-button {
-  border: none;
-  outline: none;
-  padding-bottom: 0.5rem;
-  padding-top: 0.5rem;
-
-  &:hover,
-  &:focus {
-    border: none;
-    outline: none;
-    color: var(--color-secondary);
-  }
-}
-
-.fa,
-.fas {
-  color: var(--color);
-  font-size: 15px;
 }
 </style>

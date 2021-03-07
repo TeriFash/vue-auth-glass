@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 .recommendation {
-  background: var(--bg-d-1);
+  // background: var(--bg-d-1);
 }
 .title2 {
   font-size: 18px;

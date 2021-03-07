@@ -14,27 +14,29 @@
         <v-tab title="development">
           <br />
           <div class="row">
-            <div
-              class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
-              v-for="(portfolio, i) in portfolio_info"
-              :key="portfolio.name"
-            >
-              <Card
-                :style="{ 'transition-delay': `${(i % 3) / 4.2}s` }"
-                :portfolio="portfolio"
-                @show="showModalFn"
-                data-aos="fade-up"
-                data-aos-offset="100"
-                data-aos-delay="10"
-                data-aos-duration="500"
-                data-aos-easing="ease-in-out"
-                data-aos-mirror="true"
-                data-aos-once="true"
-              />
-            </div>
+            <b-card-group class="pb-5" columns>
+              <template v-for="(portfolio, i) in portfolio_info">
+                <Card
+                  :key="portfolio.name"
+                  :style="{ 'transition-delay': `${(i % 3) / 4.2}s` }"
+                  :portfolio="portfolio"
+                  @show="showModalFn"
+                  data-aos="fade-up"
+                  data-aos-offset="100"
+                  data-aos-delay="10"
+                  data-aos-duration="500"
+                  data-aos-easing="ease-in-out"
+                  data-aos-mirror="true"
+                  data-aos-once="true"
+                />
+              </template>
+            </b-card-group>
           </div>
+
           <div class="text-center py-3" v-if="showBtn !== 'show less'">
-            <button class="btn" @click.prevent="showMore">{{ showBtn }}</button>
+            <b-button variant="primary" @click.prevent="showMore">{{
+              showBtn
+            }}</b-button>
           </div>
         </v-tab>
 
@@ -79,13 +81,13 @@
                   <span class="date ml-1">{{ design.date }}</span>
                 </div>
 
-                <button
-                  style="height: 31px; margin-top: 5px;"
-                  class="btn-sm btn btn-main"
+                <b-button
+                  variant="primary"
+                  href=""
                   @click.prevent="showDesignModalFn(design)"
                 >
                   read more
-                </button>
+                </b-button>
               </div>
             </div>
           </div>
@@ -241,17 +243,17 @@ export default {
 }
 
 .btn {
-  border-color: var(--color-violet);
-  background-color: var(--color-violet);
-  color: var(--color-white);
-  outline: none !important;
+  // border-color: var(--color-violet);
+  // background-color: var(--color-violet);
+  // color: var(--color-white);
+  // outline: none !important;
 
   &:hover,
   &:focus,
   &:active {
-    outline: none !important;
-    border-color: var(--color-violet-d-1);
-    background-color: var(--color-violet-d-1);
+    // outline: none !important;
+    // border-color: var(--color-violet-d-1);
+    // background-color: var(--color-violet-d-1);
   }
 }
 
@@ -274,20 +276,19 @@ export default {
 
       &:after {
         width: 100%;
-        color: var(--color-violet);
+        color: var(--primary);
         transition: all 0.5s;
       }
     }
 
     & > a {
-      color: var(--color-l-1);
+      color: rgba(var(--body-color), 0.5);
       background: transparent;
       border: none;
       transition: all 0.5s;
 
       span {
-        color: var(--color-l-1);
-
+        color: rgba(var(--body-color), 0.5);
         font-size: 20px;
       }
 
@@ -296,7 +297,7 @@ export default {
         width: 20%;
         position: absolute;
         bottom: 3px;
-        color: var(--color-l-1);
+        color: rgba(var(--body-color), 0.5);
         border-width: 0 0 2px;
         border-style: solid;
         transition: all 0.5s;
@@ -304,7 +305,7 @@ export default {
 
       &:hover {
         background: transparent;
-        color: var(--color-violet);
+        color: var(--primary);
         transition: all 0.5s;
       }
     }
@@ -385,7 +386,6 @@ export default {
   bottom: 0px;
   left: 70px;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   text-align: center;
   padding: 20px;
 }
@@ -411,7 +411,7 @@ export default {
 /deep/ .vueperslides__arrow {
   outline: none !important;
   border: none;
-  color: var(--color);
+  // color: var(--color);
 }
 
 .badge {

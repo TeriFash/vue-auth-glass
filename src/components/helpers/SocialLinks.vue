@@ -1,16 +1,16 @@
 <template>
-  <div class="flex text-center">
+  <div class="b-flex text-center">
     <template v-for="(item, i) in social">
-      <button
+      <b-button
         :key="i"
         :style="sizes"
-        class="btn btn-outline-secondary mx-2"
+        class="mx-2"
+        variant="primary"
         @click="open(item.link)"
         v-tooltip.bottom="!showTooltip ? item.title : ''"
       >
-        <b-icon variant="primary" :icon="item.icon"></b-icon>
-        <!-- <i :class="item.icon"></i> -->
-      </button>
+        <b-icon variant="white" :icon="item.icon"></b-icon>
+      </b-button>
     </template>
   </div>
 </template>
@@ -44,6 +44,7 @@ export default {
 
 <style scoped lang="scss">
 .btn {
+  width: initial;
   i {
     font-size: inherit;
     // color: var(--color-violet-l-1);

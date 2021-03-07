@@ -9,7 +9,7 @@
       >
         <span class="title text-center">{{ title }}.</span>
       </div>
-      <hr width="50%" class="pg-line" />
+      <hr width="50%" class="pg-line bg-primary" />
       <div class="row">
         <div class="col-xl-6 col-bg-6 col-md-6 col-sm-12">
           <Timeline :data="education" />
@@ -49,6 +49,6 @@ export default {
 
 <style scoped lang="scss">
 .about {
-  background: var(--bg-d-1);
+  // background: var(--bg-d-1);
 }
 </style>

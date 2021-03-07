@@ -103,7 +103,7 @@ export default {
 }
 
 .modal-container {
-  background-color: var(--bg-d-1);
+  // background-color: var(--bg-d-1);
   width: 40%;
   max-height: 70%;
   margin: 0px auto;
@@ -114,11 +114,11 @@ export default {
   display: flex; /*added*/
 
   .btn {
-    color: var(--color-secondary);
+    // color: var(--color-secondary);
 
     &:hover,
     &:focus {
-      color: var(--color-white);
+      // color: var(--color-white);
     }
   }
 }
@@ -163,7 +163,7 @@ export default {
 
 .fas,
 .fab {
-  color: var(--color);
+  // color: var(--color);
   &:hover,
   &:focus {
     opacity: 0.75;

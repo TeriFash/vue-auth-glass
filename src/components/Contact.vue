@@ -67,23 +67,30 @@
           data-aos-duration="1000"
           data-aos-offset="50"
         >
-          <button @click.prevent="sendEmail" class="mt-1 btn btn-full mb-3">
+          <b-button
+            variant="primary"
+            @click.prevent="sendEmail"
+            class="mt-1 mb-3"
+          >
             Send
-          </button>
+          </b-button>
         </div>
       </div>
 
-      <div class="flex flex-column align-items-center text-center py-4">
+      <div
+        class="d-flex flex-column align-items-center justify-content-center py-4"
+      >
         <h6 class="pb-4">Message: {{ message }}</h6>
-        <div class="flex w-50 py-2">
-          <button class="btn mx-2 btn-full" @click="onLoadClick">
-            <i class="fas fa-download mx-2"></i>
+        <div class="d-flex  py-2 w-50">
+          <b-button variant="primary" class=" mx-2" @click="onLoadClick">
+            <b-icon icon="download" class=" mx-2"></b-icon>
+
             load
-          </button>
-          <button class="btn mx-2 btn-full" @click="onClearClick">
-            <i class="fas fa-trash-alt mx-2"></i>
+          </b-button>
+          <b-button variant="primary" class="mx-2" @click="onClearClick">
+            <b-icon icon="trash" class="mx-2"></b-icon>
             clear
-          </button>
+          </b-button>
         </div>
       </div>
 
@@ -190,18 +197,18 @@ export default {
 }
 
 .pinput {
-  background: var(--bg-d-2);
+  // background: var(--bg-d-2);
   font-size: 18px;
   outline: none;
-  border: 1px solid var(--bg-d-2);
+  // border: 1px solid var(--bg-d-2);
   border-radius: 7px;
   padding: 10px;
   width: 70%;
   transition: all 0.5s;
-  color: var(--color);
+  // color: var(--color);
 
   &:focus {
-    border: 1px solid var(--color-violet-d-1);
+    border: 1px solid var(--primary);
     border-radius: 7px;
   }
 
@@ -212,7 +219,7 @@ export default {
 }
 
 .btn {
-  width: 50%;
+  // width: 50%;
 }
 
 @media screen and (max-width: 1000px) {

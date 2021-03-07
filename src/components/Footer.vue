@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  background: var(--bg-d-1);
+  // background: var(--bg-d-1);
 }
 
 .footer-text {
