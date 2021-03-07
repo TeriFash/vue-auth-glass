@@ -15,9 +15,9 @@
           </p>
           <ul
             class="timeline m-0 pt-1"
-            v-for="(e, idx) in data.data"
+            v-for="(e, i) in data.data"
             :key="e.name"
-            :style="{ 'transition-delay': idx / 4.2 + 's' }"
+            :style="{ 'transition-delay': `${i / 4.2}s` }"
             data-aos="fade-up"
             data-offset="10"
             data-aos-once="true"

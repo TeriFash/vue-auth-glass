@@ -8,7 +8,8 @@
         @click="open(item.link)"
         v-tooltip.bottom="!showTooltip ? item.title : ''"
       >
-        <i :class="item.icon"></i>
+        <b-icon variant="primary" :icon="item.icon"></b-icon>
+        <!-- <i :class="item.icon"></i> -->
       </button>
     </template>
   </div>
@@ -45,7 +46,7 @@ export default {
 .btn {
   i {
     font-size: inherit;
-    color: var(--color-violet-l-1);
+    // color: var(--color-violet-l-1);
   }
 }
 </style>

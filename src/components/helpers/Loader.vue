@@ -22,7 +22,7 @@ export default {
       document.body.classList.toggle('loading-wrapper')
 
       if (newVal) {
-        this.overlayPosition.top = window.pageYOffset - 35 + 'px'
+        this.overlayPosition.top = `${window.pageYOffset - 35}px`
       }
     },
   },

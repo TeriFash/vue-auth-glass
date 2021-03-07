@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import info from "@/content";
+import info from '@/data'
 
 export default {
-  name: "Logo",
+  name: 'Logo',
   data() {
     return {
       name: info.logo_name,
-      dot: "."
-    };
-  }
-};
+      dot: '.',
+    }
+  },
+}
 </script>
 
 <style scoped>

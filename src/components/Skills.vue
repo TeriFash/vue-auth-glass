@@ -11,24 +11,22 @@
       </div>
       <hr width="50%" class="pg-line" />
       <br />
+
       <div class="row">
         <div
-          class="col-xl-4 col-bg-4 col-md-4 col-sm-12 text-center pb-5 px-4"
-          v-for="(skill, idx) in skills"
-          :key="skill.title"
+          v-for="(item, i) in skillsData"
+          :key="i"
+          class="col-xl-4 col-bg-4 col-md-4 col-sm-12 text-center mb-5"
           data-aos="fade-up"
           data-aos-offset="10"
           data-aos-delay="30"
-          :style="{ 'transition-delay': idx / 4.2 + 's' }"
+          :style="{ 'transition-delay': `${i / 4.2}s` }"
           data-aos-duration="500"
           data-aos-easing="ease-in-out"
           data-aos-mirror="true"
           data-aos-once="true"
         >
-          <div><i :class="skill.icon"></i></div>
-          <div class="title2 pt-2">{{ skill.title }}</div>
-          <hr width="50%" class="pg-line" />
-          <span class="title3">{{ skill.info.join(', ') }}</span>
+          <SkillsList :data="item" />
         </div>
       </div>
     </div>
@@ -36,22 +34,27 @@
 </template>
 
 <script>
-import info from '@/data'
+import SkillsList from '@/components/helpers/SkillsList'
+import { appData, skillsData } from '@/data'
+// import skillsData from '@/data/skills.js'
 
 export default {
   name: 'Skills',
   data() {
     return {
-      title: info.sections.skills,
-      skills: info.skills,
+      title: appData.sections.skills,
+      skills: appData.skills,
+      skillsData: skillsData,
     }
+  },
+  components: {
+    SkillsList,
   },
 }
 </script>
 
 <style scoped>
 .skills {
-  /* background: var(--bg-d-1); */
 }
 
 .fa,

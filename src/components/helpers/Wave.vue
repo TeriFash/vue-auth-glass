@@ -1,5 +1,5 @@
 <template>
-  <span><span class="wave">👋🏽 </span> <slot></slot></span>
+  <span><span class="wave"> 👋🏽 </span> <slot></slot></span>
 </template>
 
 <script>

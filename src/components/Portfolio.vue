@@ -10,18 +10,17 @@
         <span class="title text-center">{{ title }}.</span>
       </div>
       <hr class="pb-line w-50" />
-
-      <vue-tabs :activeTextColor="colorMode === 'dark' ? '#ebf4f1' : '#243746'">
+      <vue-tabs :activeTextColor="isColorMode">
         <v-tab title="development">
           <br />
           <div class="row">
             <div
               class="col-xl-4 col-bg-4 col-md-6 col-sm-12"
-              v-for="(portfolio, idx) in portfolio_info"
+              v-for="(portfolio, i) in portfolio_info"
               :key="portfolio.name"
             >
               <Card
-                :style="{ 'transition-delay': (idx % 3) / 4.2 + 's' }"
+                :style="{ 'transition-delay': `${(i % 3) / 4.2}s` }"
                 :portfolio="portfolio"
                 @show="showModalFn"
                 data-aos="fade-up"
@@ -42,9 +41,9 @@
         <v-tab title="design">
           <div class="row container-second">
             <div
-              v-for="(design, idx) in desgin_info"
-              :key="idx"
-              :class="{ 'mt-4': idx === 0 ? true : true }"
+              v-for="(design, i) in desgin_info"
+              :key="i"
+              :class="{ 'mt-4': i === 0 ? true : true }"
               class="col-xl-6 col-bg-6 col-md-12 col-sm-12"
               style="position: relative;"
             >
@@ -172,9 +171,10 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({
-      colorMode: 'colorMode',
-    }),
+    ...mapGetters(['colorMode']),
+    isColorMode() {
+      return this.colorMode === 'dark' ? '#ebf4f1' : '#243746'
+    },
   },
   methods: {
     next() {
