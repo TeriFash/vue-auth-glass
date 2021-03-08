@@ -33,7 +33,7 @@
           </div>
 
           <div class="text-center pb-3">
-            <hr class="mt-1 mb-3 pg-line" />
+            <hr class="mt-1 mb-3" />
             <button class="btn w-25" @click="$emit('close')">close</button>
           </div>
         </div>
@@ -103,24 +103,13 @@ export default {
 }
 
 .modal-container {
-  // background-color: var(--bg-d-1);
   width: 40%;
   max-height: 70%;
   margin: 0px auto;
   border-radius: 7px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   flex-direction: column;
   display: flex; /*added*/
-
-  .btn {
-    // color: var(--color-secondary);
-
-    &:hover,
-    &:focus {
-      // color: var(--color-white);
-    }
-  }
 }
 
 @media screen and (max-width: 1600px) {
@@ -159,14 +148,5 @@ export default {
 
 .title1 a {
   font-size: 18px;
-}
-
-.fas,
-.fab {
-  // color: var(--color);
-  &:hover,
-  &:focus {
-    opacity: 0.75;
-  }
 }
 </style>

@@ -84,7 +84,6 @@
         <div class="d-flex  py-2 w-50">
           <b-button variant="primary" class=" mx-2" @click="onLoadClick">
             <b-icon icon="download" class=" mx-2"></b-icon>
-
             load
           </b-button>
           <b-button variant="primary" class="mx-2" @click="onClearClick">
@@ -197,29 +196,12 @@ export default {
 }
 
 .pinput {
-  // background: var(--bg-d-2);
   font-size: 18px;
   outline: none;
-  // border: 1px solid var(--bg-d-2);
   border-radius: 7px;
   padding: 10px;
   width: 70%;
   transition: all 0.5s;
-  // color: var(--color);
-
-  &:focus {
-    border: 1px solid var(--primary);
-    border-radius: 7px;
-  }
-
-  &::placeholder {
-    opacity: 0.5;
-    color: inherit;
-  }
-}
-
-.btn {
-  // width: 50%;
 }
 
 @media screen and (max-width: 1000px) {

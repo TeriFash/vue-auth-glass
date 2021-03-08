@@ -8,6 +8,8 @@ html.light-mode {
   --body-color: #303030;
   --card-bg: #f1f1f1;
   --card-box-shadow: #222;
+  --input-bg: #f1f1f1;
+  --input-border-color: #dfdede;
 }
 
 html.dark-mode {
@@ -15,6 +17,8 @@ html.dark-mode {
   --body-color: #ebebeb;
   --card-bg: #2c2c2c;
   --card-box-shadow: #222;
+  --input-bg: #2c2c2c;
+  --input-border-color: #252525;
 }
 
 $white:    #fff !default;
@@ -79,7 +83,8 @@ $table-border-color:          $gray-700 !default;
 
 // Forms
 
-$input-border-color:                $body-bg !default;
+$input-bg:                var(--input-bg) !default;
+$input-border-color:                var(--input-border-color) !default;
 $input-group-addon-color:           $gray-500 !default;
 $input-group-addon-bg:              $gray-700 !default;
 $custom-file-color:                 $gray-500 !default;

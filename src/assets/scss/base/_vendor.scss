@@ -215,7 +215,7 @@
 
 // Card ========================================================================
 
-.portfolio .card {
+.card {
   box-shadow: 3px 3px 17px  rgba($gray-900, .2);
 
   &:hover {
@@ -223,6 +223,25 @@
 
     cursor: pointer;
     box-shadow: 7px 3px 22px  rgba($gray-900, .1);
+  }
+}
+
+// Input ==================================================================
+
+.pinput {
+  background: $input-bg;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $input-border-color;
+  color: $input-color;
+
+  &:focus {
+    border-color: $primary;
+  }
+
+  &::placeholder {
+    opacity: 0.5;
+    color: inherit;
   }
 }
 
@@ -274,7 +293,11 @@
   }
 }
 
+// Modal ==================================================================
 
+.modal-container {
+  box-shadow: 0 2px 8px rgba($gray-900, 0.2);
+}
 
 // @import '~bootstrap';
 // @import '~bootstrap-vue';

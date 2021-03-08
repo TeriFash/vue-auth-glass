@@ -9,17 +9,22 @@
                 portfolio.name
               }}</a></span
             >
-            <a
+            <b-button
               class="pull-right"
               style="font-size: 18px;"
+              variant="outline"
               @click="$emit('close')"
-              ><i class="fas fa-times"></i
-            ></a>
-            <!-- <hr class="my-1 pg-line" /> -->
+            >
+              <b-icon aria-hidden="true" icon="x"></b-icon>
+            </b-button>
           </div>
           <div class="modal-body pt-2">
             <div class="mb-3 date">
-              <i class="fas fa-calendar-alt mr-3"></i>
+              <b-icon
+                variant="primary"
+                icon="calendar2-date-fill"
+                class="mr-2"
+              ></b-icon>
               <span>{{ portfolio.date }} • {{ portfolio.category }}</span>
             </div>
             <div class="pb-1 bheight">
@@ -30,7 +35,6 @@
                 >{{ tech }}</span
               >
             </div>
-
             <div>
               <span class="text-justify" v-html="portfolio.description"></span>
             </div>
@@ -40,15 +44,18 @@
             </div>
           </div>
           <div class="text-center pb-3">
-            <hr class="mt-1 mb-3 pg-line" />
-            <button
+            <hr class="mt-1 mb-3" />
+            <b-button
+              variant="primary"
               class="btn w-25 mr-3 d-inline-flex justify-content-center align-items-center"
               @click="open(portfolio.github)"
             >
-              <i class="fab fa-github mr-3"></i>
+              <b-icon class="mr-3" icon="github"></b-icon>
               github
-            </button>
-            <button class="btn w-25" @click="$emit('close')">close</button>
+            </b-button>
+            <b-button variant="primary" class="btn w-25" @click="$emit('close')"
+              >close</b-button
+            >
           </div>
         </div>
       </div>
@@ -116,20 +123,10 @@ export default {
   max-height: 70%;
   margin: 0px auto;
   border-radius: 7px;
-  // background-color: var(--bg-d-1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  background-color: var(--body-bg);
   transition: all 0.3s ease;
   flex-direction: column;
   display: flex; /*added*/
-
-  .btn {
-    // color: var(--color-secondary);
-
-    &:hover,
-    &:focus {
-      // color: var(--color-white);
-    }
-  }
 }
 
 @media screen and (max-width: 1600px) {
@@ -166,24 +163,29 @@ export default {
   transform: scale(1.1);
 }
 
-.title1 a {
-  text-decoration: none;
-  // color: var(--color);
-  transition: all 0.2s;
-  cursor: pointer;
+.title1 {
+  display: flex;
+  justify-content: space-between;
 
-  &:hover,
-  &:focus {
-    opacity: 0.75;
+  a {
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 0.75;
+    }
   }
 }
 
-.fas,
-.fab {
-  // color: var(--color);
+.btn-outline {
+  width: initial;
+  padding: 0;
+
   &:hover,
   &:focus {
-    opacity: 0.75;
+    box-shadow: none;
   }
 }
 </style>
