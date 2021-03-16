@@ -58,7 +58,8 @@ $yiq-contrasted-threshold:  175 !default;
 
 // Body
 
-$body-bg:                   var(--body-bg) !default;
+$bg-primary:                   var(--body-bg) !default;
+$body-bg:                  $gray-300 !default;
 $body-color:                var(--body-color) !default;
 
 // Links
@@ -83,12 +84,12 @@ $table-border-color:          $gray-700 !default;
 
 // Forms
 
-$input-bg:                var(--input-bg) !default;
-$input-border-color:                var(--input-border-color) !default;
-$input-group-addon-color:           $gray-500 !default;
-$input-group-addon-bg:              $gray-700 !default;
-$custom-file-color:                 $gray-500 !default;
-$custom-file-border-color:          $body-bg !default;
+// $input-bg:                var(--input-bg) !default;
+// $input-border-color:                var(--input-border-color) !default;
+// $input-group-addon-color:           $gray-500 !default;
+// $input-group-addon-bg:              $gray-700 !default;
+// $custom-file-color:                 $gray-500 !default;
+// $custom-file-border-color:          $body-bg !default;
 
 // Dropdowns
 
@@ -168,8 +169,8 @@ $progress-bg:                       $gray-700 !default;
 
 // List group
 
-$list-group-bg:                     $gray-800 !default;
-$list-group-border-color:           $gray-700 !default;
+// $list-group-bg:                     $gray-800 !default;
+// $list-group-border-color:           $gray-700 !default;
 $list-group-hover-bg:               $gray-700 !default;
 
 // Breadcrumbs

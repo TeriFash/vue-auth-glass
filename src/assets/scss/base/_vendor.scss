@@ -166,7 +166,7 @@
 // Forms =======================================================================
 
 .input-group-addon {
-  color: $white;
+  // color: $white;
 }
 
 // Navs ========================================================================
@@ -216,13 +216,13 @@
 // Card ========================================================================
 
 .card {
-  box-shadow: 3px 3px 17px  rgba($gray-900, .2);
+  // box-shadow: 3px 3px 17px  rgba($gray-900, .2);
 
   &:hover {
-    transition: all 0.5s!important;
+    // transition: all 0.5s!important;
 
     cursor: pointer;
-    box-shadow: 7px 3px 22px  rgba($gray-900, .1);
+    // box-shadow: 7px 3px 22px  rgba($gray-900, .1);
   }
 }
 
@@ -280,16 +280,16 @@
 // Containers ==================================================================
 
 .list-group-item-action {
-  color: $white;
+  // color: $white;
 
   &:hover,
   &:focus {
-    background-color: $gray-700;
-    color: $white;
+    // background-color: $gray-700;
+    // color: $white;
   }
 
   .list-group-item-heading {
-    color: $white;
+    // color: $white;
   }
 }
 

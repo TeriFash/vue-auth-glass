@@ -1,5 +1,5 @@
 {
-  "name": "teri.fash.cv",
+  "name": "vue-auth-glass",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,26 +10,17 @@
     "lint:test": "eslint --ext .js,.vue --ignore-path .gitignore . "
   },
   "dependencies": {
-    "@chenfengyuan/vue-carousel": "^1.0.5",
     "@vue-a11y/dark-mode": "^1.1.1",
-    "aos": "^3.0.0-beta.6",
+    "core-js": "^3.6.4",
+    "eslint-config-prettier": "^8.1.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
-    "core-js": "^3.6.4",
-    "emailjs-com": "^2.4.1",
-    "eslint-config-prettier": "^8.1.0",
     "material-icons": "^0.3.1",
     "serve": "^11.3.0",
-    "v-tooltip": "^2.0.3",
     "vue": "^2.6.12",
-    "vue-cookie": "^1.1.4",
-    "vue-nav-tabs": "^0.5.7",
-    "vue-parallax-js": "^0.2.3",
     "vue-router": "^3.3.4",
-    "vue-scrollto": "^2.18.1",
-    "vue-selector": "0.0.1",
-    "vueperslides": "^2.10.2",
+    "vuelidate": "^0.7.6",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
